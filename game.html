@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Going To Boston Game</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Going To Boston</h1>
+        <div v-if="!gameStarted">
+            Number of Rounds (odd): <input v-model="totalRounds" type="text" size="5"> <br><br>
+            <button @click="startGame">Start the Game</button>
+            <p class="msg">{{ message }}</p>
+        </div>
+
+        <div v-if="gameStarted">
+            <h2 class="who">{{ firstPlayerMessage }}</h2> <br><br>
+            <p class="total">Total rounds: {{ totalRounds }}</p>
+            <p class="current">Current round: {{ currentRound }}</p>
+            <div id="players">
+                <button type="button" class="roll1" @click="rollDicePlayer1" :disabled="!player1Turn">Roll The Dice!</button>
+                <br><br>
+                <button type="button" class="roll2" @click="rollDicePlayer2" :disabled="!player2Turn">Roll The Dice!</button>
+            </div>
+            <div id="scores">
+                <p class="player1">{{ player1RollMessage }}</p>
+                <p class="player1-score">Player 1's Score: {{ score1 }}</p>
+                <p class="player1-wins">Player 1's Wins: {{ wins1 }}</p>
+                <p class="player2-wins">Player 2's Wins: {{ wins2 }}</p>
+                <p class="player2-score">Player 2's Score: {{ score2 }}</p>
+                <p class="player2">{{ player2RollMessage }}</p>
+            </div>
+            <b><p class="first">{{ resultMessage }}</p></b>
+            <footer>
+                <button type="button" class="restart" @click="restartGame">Restart Game</button>
+            </footer>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

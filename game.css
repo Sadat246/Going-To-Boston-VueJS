@@ -1,0 +1,30 @@
+body {
+    background-color: bisque;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    padding: 1%;
+    background-color: burlywood;
+}
+
+button {
+    color: saddlebrown;
+    background-color: sandybrown;
+}
+
+#players {
+    display: flex;
+    justify-content: space-between;
+}
+
+#scores {
+    display: flex;
+    justify-content: space-between;
+}
+
+.roll1,
+.roll2 {
+    padding: 5px;
+}
